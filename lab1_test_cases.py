@@ -41,8 +41,7 @@ class TestLab1(unittest.TestCase):
     def test_bin_search_find_value(self):
         """tests bin_search to find value in a sorted list"""
         tlist = [0,1,2,3,4,5,6,7,8,9,10]
-        low = 0
-        high = len(tlist)-1
+        low, high = 0, len(tlist)-1
         self.assertEqual(bin_search(4, low, high, tlist), 4)
         self.assertEqual(bin_search(0, low, high, tlist), 0)
         self.assertEqual(bin_search(10, low, high, tlist), 10)
@@ -55,8 +54,14 @@ class TestLab1(unittest.TestCase):
 
     def test_bin_search_list_empty(self):
         tlist = []
-        low, high = 0, 10
+        low, high = 0, len(tlist)-1
         self.assertEqual(bin_search(3, low, high, tlist), None)
+
+    def test_bin_search_val_nonexistent(self):
+        tlist = [0,1,3,4,5,6,8]
+        low, high = 0, len(tlist)-1
+        self.assertEqual(bin_search(7, low, high, tlist), None)
+        self.assertEqual(bin_search(2, low, high, tlist), None)
 
 if __name__ == "__main__":
         unittest.main()
