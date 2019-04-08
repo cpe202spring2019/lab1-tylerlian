@@ -40,3 +40,4 @@ def bin_search(target, low, high, int_list):  # must use recursion
    else:
       return bin_search(target,low,average-1,int_list)
 
+
