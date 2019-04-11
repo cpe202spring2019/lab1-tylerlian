@@ -27,14 +27,12 @@ def bin_search(target, low, high, int_list):  # must use recursion
     If target is not found returns None. If list is None, raises ValueError """
     if int_list == None:
         raise ValueError
-    if low > high:
-        return None
-    average = (low+high)//2
-    if target == int_list[average]:
-        return average
-    elif target > int_list[average]:
-        return bin_search(target,average+1,high,int_list)
-    else:
-      return bin_search(target,low,average-1,int_list)
-
-
+    if low <= high:
+        average = (low+high)//2
+        if target == int_list[average]:
+            return average
+        elif target > int_list[average]:
+            return bin_search(target,average+1,high,int_list)
+        else:
+            return bin_search(target,low,average-1,int_list)
+    return None
