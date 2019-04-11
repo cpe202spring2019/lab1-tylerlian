@@ -27,11 +27,6 @@ class TestLab1(unittest.TestCase):
         with self.assertRaises(ValueError):  # used to check for exception
             reverse_rec(tlist)
 
-    def test_reverse_rec_list_empty(self):
-        """tests reverse_rec function if the list is empty"""
-        tlist = []
-        self.assertEqual(reverse_rec(tlist),None)
-
     def test_reverse_rec_reverse_list(self):
         """tests reverse_rec function to see if it reverses a list"""
         self.assertEqual(reverse_rec([3,1,2]),[2,1,3])
@@ -51,11 +46,6 @@ class TestLab1(unittest.TestCase):
         low, high = 0, 10
         with self.assertRaises(ValueError):
             bin_search(3, low, high, tlist)
-
-    def test_bin_search_list_empty(self):
-        tlist = []
-        low, high = 0, len(tlist)-1
-        self.assertEqual(bin_search(3, low, high, tlist), None)
 
     def test_bin_search_val_nonexistent(self):
         tlist = [0,1,3,4,5,6,8]
